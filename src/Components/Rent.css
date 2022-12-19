@@ -1,0 +1,40 @@
+.rent-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  margin: 25px auto;
+}
+
+.input-box {
+  padding: 10px;
+  margin: 10px 30px;
+}
+
+.input-label {
+  margin: 10px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.rent-inputs {
+  padding: 8px;
+  border-radius: 5px;
+  border: 2px solid #97dece;
+  width: 150px;
+}
+
+.rent-inputs:hover {
+  border: 2px solid #62b6b7;
+}
+
+.rent-inputs:focus {
+  outline: none;
+  border: 2px solid #2b6967;
+}
+
+@media (width < 500px) {
+  .rent-container {
+    flex-direction: column;
+  }
+}

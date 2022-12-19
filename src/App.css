@@ -1,0 +1,55 @@
+/* Main Colors
+ #1C315E
+#2b6967
+#439A97
+#62B6B7
+#97DECE  --
+#CBEDD5 */
+/* Supplement Color
+#e4abb8
+#de97a7 --
+#de7f95
+#855a64
+#583c42
+*/
+
+.body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+    url(Images/background21.jpg);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.App {
+  text-align: center;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.calculate-btn {
+  background-color: #de7f95;
+  border: 1px solid #de97a7;
+  border-radius: 25px;
+  padding: 12px 50px;
+  margin: 25px 0px 40px;
+  font-size: 20px;
+  color: #000;
+  box-shadow: 2px 4px 12px #de7f95;
+  font-weight: 900;
+}
+
+.calculate-btn:hover {
+  background-color: #de97a7;
+  cursor: pointer;
+}
+
+.price-value {
+  padding: 25px;
+}

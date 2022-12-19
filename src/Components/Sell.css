@@ -1,0 +1,34 @@
+.sell-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin: 25px auto;
+}
+
+.input-box {
+  padding: 10px;
+  margin: 10px 30px;
+}
+
+.input-label {
+  margin: 10px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.sell-inputs {
+  padding: 8px;
+  border-radius: 5px;
+  border: 2px solid #97dece;
+  width: 250px;
+}
+
+.sell-inputs:hover {
+  border: 2px solid #62b6b7;
+}
+
+.sell-inputs:focus {
+  outline: none;
+  border: 2px solid #2b6967;
+}
