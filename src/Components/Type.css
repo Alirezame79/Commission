@@ -17,8 +17,12 @@
   font-weight: 500;
 }
 
-@media (width < 450px) {
+@media (width < 500px) {
   .type {
     flex-direction: column;
+  }
+  .radio-btn-label {
+    font-size: 16px;
+    font-weight: 500;
   }
 }

@@ -32,3 +32,14 @@
   outline: none;
   border: 2px solid #2b6967;
 }
+
+@media (width < 500px) {
+  .sell-container {
+    flex-direction: column;
+  }
+  .input-label {
+    margin: 15px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
