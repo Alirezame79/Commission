@@ -25,7 +25,6 @@ function Type(props) {
             <div>
                 <input className='radio-btn' type="radio" onClick={rentClicked} defaultChecked id="rent" name="category" value="rent" />
                 <label className='radio-btn-label' htmlFor='rent'>رهن و اجاره</label><br></br>
-
             </div>
         </div>
 

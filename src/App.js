@@ -76,14 +76,17 @@ function App() {
   function rentDataReceived(m, h) {
     // console.log('mortgage: ', m, '   hire: ', h);
     setShowResult(false);
-    mortgage = m;
-    hire = h;
+    const intM = m.toString().replaceAll(',', '');
+    const intH = h.toString().replaceAll(',', '');
+    mortgage = Number(intM);
+    hire = Number(intH);
   }
   function sellDataReceived(s) {
     // console.log('sell: ', s);
     setShowResult(false);
     // console.log(s, 's')
-    sell = s;
+    const intS = s.toString().replaceAll(',', '');
+    sell = intS;
   }
 
   function typeChanged(type) {

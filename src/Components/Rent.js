@@ -9,7 +9,17 @@ function Rent(props) {
     function formatInputCurrency() {
         // Jquery Dependency
 
-        $("input[data-type='currency']").on({
+
+        $("#mortgage").on({
+            keyup: function () {
+                formatCurrency($(this));
+            },
+            blur: function () {
+                formatCurrency($(this), "blur");
+            }
+        });
+
+        $("#hire").on({
             keyup: function () {
                 formatCurrency($(this));
             },
@@ -26,6 +36,7 @@ function Rent(props) {
 
 
         function formatCurrency(input, blur) {
+            console.log(input, "myInput");
             var input_val = input.val();
             if (input_val === "") { return; }
             var original_len = input_val.length;
