@@ -38,7 +38,10 @@ function App() {
       tax = temporary * 0.09;
       result = Math.floor(temporary + tax);
       console.log('resultR', result)
-      setFinalResult(result);
+
+      // if (result === 0) {
+      //   setFinalResult(result);
+      // }
 
     } else if (operatingType === 'sell') {
       if (parseInt(sell) <= 0) {
@@ -68,10 +71,13 @@ function App() {
         result += DEFAULTS.FIRST5 + DEFAULTS.SECOND1 + DEFAULTS.THIRD2;
         console.log('result2+', result)
       }
-      setFinalResult(result);
     }
+    if (result === 0) {
+      return false;
+    }
+    setFinalResult(result);
+    return true;
   }
-
 
   function rentDataReceived(m, h) {
     // console.log('mortgage: ', m, '   hire: ', h);
@@ -97,7 +103,8 @@ function App() {
 
   function calculateBtnClicked() {
     // console.log('Calculate btn clicked!');
-    calculate();
+    const res = calculate();
+    if (!res) return;
     setShowResult(true);
   }
 
@@ -105,18 +112,20 @@ function App() {
     <div className="body">
       <div className="App">
         <Card>
-          <h2 className='app-topic'>محاسبه کمیسیون املاک رشت</h2>
+          <h2 className='app-topic'>محاسبه آنلاین کمیسیون<br></br>املاک رشت</h2>
           <Type onTypeChanged={typeChanged} />
           {operatingType === 'rent' ? <Rent onDataReceived={rentDataReceived} /> : <Sell onDataReceived={sellDataReceived} />}
-          <button className='calculate-btn' onClick={calculateBtnClicked}>محاسبه</button>
+          {!showResult ? <button className='calculate-btn' onClick={calculateBtnClicked}>محاسبه</button> : <></>}
         </Card>
-        <Card>
-          <h3>مبلغ قابل پرداخت طرفین معامله</h3>
-          {showResult ? <h2 className='price-value'>{finalResult.toLocaleString('fa', {
-            style: 'currency',
-            currency: 'IRR',
-          })}</h2> : <h4 className='price-value'>مقادیر مورد نیاز را وارد نمایید</h4>}
-        </Card>
+        {showResult ?
+          <Card>
+            <h3>مبلغ قابل پرداخت طرفین معامله</h3>
+            <h2 className='price-value'>{finalResult.toLocaleString('fa', {
+              style: 'currency',
+              currency: 'IRR',
+            })}</h2>
+          </Card> : <></>}
+
       </div>
     </div>
   );

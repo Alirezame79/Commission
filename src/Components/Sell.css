@@ -3,10 +3,10 @@
   align-items: center;
   justify-content: center;
   width: 80%;
-  margin: 25px auto;
+  margin: 15px auto;
 }
 
-.input-box {
+.input-box-sell {
   padding: 10px;
   margin: 10px 30px;
 }
@@ -17,7 +17,7 @@
   font-weight: 700;
 }
 
-.sell-inputs {
+.sell-input {
   padding: 8px;
   border-radius: 5px;
   border: 2px solid #97dece;
@@ -41,5 +41,15 @@
     margin: 15px;
     font-size: 16px;
     font-weight: 600;
+  }
+  .input-box-sell {
+    display: flex;
+    flex-direction: column;
+  }
+  .sell-input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 2px solid #97dece;
+    width: 175px;
   }
 }

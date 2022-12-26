@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   width: 80%;
-  margin: 25px auto;
+  margin: 15px auto;
 }
 
 .input-box {
@@ -37,9 +37,18 @@
   .rent-container {
     flex-direction: column;
   }
+  .input-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .input-label {
     margin: 15px;
     font-size: 16px;
     font-weight: 600;
+  }
+  .rent-inputs {
+    width: 150px;
+    height: 30px;
   }
 }

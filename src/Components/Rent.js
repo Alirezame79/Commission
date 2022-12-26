@@ -36,7 +36,7 @@ function Rent(props) {
 
 
         function formatCurrency(input, blur) {
-            console.log(input, "myInput");
+            // console.log(input, "myInput");
             var input_val = input.val();
             if (input_val === "") { return; }
             var original_len = input_val.length;

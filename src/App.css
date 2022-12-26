@@ -13,6 +13,10 @@
 #583c42
 */
 
+* {
+  font-family: "BTitr";
+}
+
 .body {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
     url(Images/background21.jpg);
@@ -37,8 +41,8 @@
   background-color: #de7f95;
   border: 1px solid #de97a7;
   border-radius: 25px;
-  padding: 12px 50px;
-  margin: 25px 0px 40px;
+  padding: 12px 85px;
+  margin: 20px 0px 30px;
   font-size: 20px;
   color: #000;
   box-shadow: 2px 4px 12px #de7f95;
@@ -51,5 +55,14 @@
 }
 
 .price-value {
-  padding: 25px;
+  padding: 15px;
+}
+
+@media (width < 500px) {
+  .app-topic {
+    font-size: 22px;
+  }
+  .calculate-btn {
+    padding: 12px 65px;
+  }
 }
