@@ -112,7 +112,7 @@ function App() {
     <div className="body">
       <div className="App">
         <Card>
-          <h2 className='app-topic'>محاسبه آنلاین کمیسیون<br></br>املاک رشت</h2>
+          <h2 className='app-topic'>محاسبه آنلاین حق کمیسیون<br></br>املاک رشت</h2>
           <Type onTypeChanged={typeChanged} />
           {operatingType === 'rent' ? <Rent onDataReceived={rentDataReceived} /> : <Sell onDataReceived={sellDataReceived} />}
           {!showResult ? <button className='calculate-btn' onClick={calculateBtnClicked}>محاسبه</button> : <></>}
