@@ -4,15 +4,19 @@ import Card from './UI/Card';
 import Type from './Components/Type';
 import Rent from './Components/Rent';
 import Sell from './Components/Sell';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 function App() {
   const [operatingType, setOperatingType] = useState('rent');
   const [finalResult, setFinalResult] = useState(0);
   const [showResult, setShowResult] = useState(false);
+  const [sell, setSell] = useState(0);
+  const [hire, setHire] = useState(0);
+  const [mortgage, setMortgage] = useState(0);
 
-  let mortgage = 0;
-  let hire = 0;
-  let sell = 0;
+  // let mortgage = 0;
+  // let hire = 0;
+  // let sell = 0;
 
   // This function calculate the RESULT based on our rules
   function calculate() {
@@ -32,9 +36,11 @@ function App() {
 
     console.log('operatingType= ', operatingType);
     if (operatingType === 'rent') {
-      hire = parseInt(hire);
-      hire += parseInt(mortgage * 0.025);
-      temporary = hire / 6;
+      let temp = parseInt(hire);
+      setHire(parseInt(hire) + parseInt(mortgage * 0.025));
+      temp += parseInt(Number(mortgage) * 0.025);
+      // console.log("test", mortgage, " ", temp);
+      temporary = temp / 6;
       tax = temporary * 0.09;
       result = Math.floor(temporary + tax);
       console.log('resultR', result)
@@ -80,19 +86,22 @@ function App() {
   }
 
   function rentDataReceived(m, h) {
-    // console.log('mortgage: ', m, '   hire: ', h);
     setShowResult(false);
     const intM = m.toString().replaceAll(',', '');
     const intH = h.toString().replaceAll(',', '');
-    mortgage = Number(intM);
-    hire = Number(intH);
+    console.log('mortgage: ', intM, '   hire: ', intH);
+    // mortgage = Number(intM);
+    // hire = Number(intH);
+    setMortgage(intM);
+    setHire(intH);
   }
   function sellDataReceived(s) {
-    // console.log('sell: ', s);
+    console.log('sell: ', s);
     setShowResult(false);
     // console.log(s, 's')
     const intS = s.toString().replaceAll(',', '');
-    sell = intS;
+    // sell = Number(intS);
+    setSell(intS);
   }
 
   function typeChanged(type) {
@@ -109,25 +118,27 @@ function App() {
   }
 
   return (
-    <div className="body">
-      <div className="App">
-        <Card>
-          <h2 className='app-topic'>محاسبه آنلاین حق کمیسیون<br></br>املاک رشت</h2>
-          <Type onTypeChanged={typeChanged} />
-          {operatingType === 'rent' ? <Rent onDataReceived={rentDataReceived} /> : <Sell onDataReceived={sellDataReceived} />}
-          {!showResult ? <button className='calculate-btn' onClick={calculateBtnClicked}>محاسبه</button> : <></>}
-        </Card>
-        {showResult ?
+    <Router basename='/commission'>
+      <div className="body">
+        <div className="App">
           <Card>
-            <h3>مبلغ قابل پرداخت طرفین معامله</h3>
-            <h2 className='price-value'>{finalResult.toLocaleString('fa', {
-              style: 'currency',
-              currency: 'IRR',
-            })}</h2>
-          </Card> : <></>}
+            <h2 className='app-topic'>محاسبه آنلاین حق کمیسیون<br></br>املاک رشت</h2>
+            <Type onTypeChanged={typeChanged} />
+            {operatingType === 'rent' ? <Rent onDataReceived={rentDataReceived} /> : <Sell onDataReceived={sellDataReceived} />}
+            {!showResult ? <button className='calculate-btn' onClick={calculateBtnClicked}>محاسبه</button> : <></>}
+          </Card>
+          {showResult ?
+            <Card>
+              <h3>مبلغ قابل پرداخت طرفین معامله</h3>
+              <h2 className='price-value'>{finalResult.toLocaleString('fa', {
+                style: 'currency',
+                currency: 'IRR',
+              })}</h2>
+            </Card> : <></>}
 
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
