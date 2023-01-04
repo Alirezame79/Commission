@@ -72,11 +72,11 @@ function Rent(props) {
     return (
         <div className='rent-container'>
             <div className='input-box'>
-                <input className='rent-inputs' data-type='currency' id='hire' placeholder='ریال' onChange={hireChanged} type={'text'} />
+                <input className='rent-inputs' data-type='currency' id='hire' placeholder='تومان' onChange={hireChanged} type={'text'} />
                 <label className='input-label' htmlFor='hire' >اجاره</label> <br></br>
             </div>
             <div className='input-box'>
-                <input className='rent-inputs' data-type='currency' id='mortgage' placeholder='ریال' onChange={mortgageChanged} type={'text'} />
+                <input className='rent-inputs' data-type='currency' id='mortgage' placeholder='تومان' onChange={mortgageChanged} type={'text'} />
                 <label className='input-label' htmlFor='mortgage'>رهن</label> <br></br>
             </div>
         </div>

@@ -22,12 +22,12 @@ function App() {
   // This function calculate the RESULT based on our rules
   function calculate() {
     const DEFAULTS = {
-      MILLION5: 5000000000,
-      BILLION1: 10000000000,
-      BILLION2: 20000000000,
-      FIRST5: 27250000,
-      SECOND1: 21800000,
-      THIRD2: 32700000
+      MILLION5: 500000000,
+      BILLION1: 1000000000,
+      BILLION2: 2000000000,
+      FIRST5: 2725000,
+      SECOND1: 2180000,
+      THIRD2: 3270000
     }
 
     let result = 0;
@@ -142,12 +142,8 @@ function App() {
           {showResult ?
             <Card>
               <h3>مبلغ قابل پرداخت طرفین معامله</h3>
-              <h2 className='price-value'>{finalResult.toLocaleString('fa', {
-                style: 'currency',
-                currency: 'IRR',
-              })}</h2>
+              <h2 className='price-value'>{finalResult.toLocaleString('ar-EG')}  تومان</h2>
             </Card> : <></>}
-
         </div>
       </div>
     </Router>

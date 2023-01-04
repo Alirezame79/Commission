@@ -54,7 +54,7 @@ function FullRent(props) {
     return (
         <div className='full-mortgage-container'>
             <div className='input-box-full-mortgage'>
-                <input className='full-mortgage-input' data-type='currency' id='full-mortgage' placeholder='ریال' onChange={FullMortgageChanged} type={'text'} />
+                <input className='full-mortgage-input' data-type='currency' id='full-mortgage' placeholder='تومان' onChange={FullMortgageChanged} type={'text'} />
                 <label className='input-label' htmlFor='full-mortgage' >رهن</label> <br></br>
             </div>
         </div>

@@ -54,7 +54,7 @@ function Sell(props) {
     return (
         <div className='sell-container'>
             <div className='input-box-sell'>
-                <input className='sell-input' data-type='currency' id='sell' placeholder='ریال' onChange={sellChanged} type={'text'} />
+                <input className='sell-input' data-type='currency' id='sell' placeholder='تومان' onChange={sellChanged} type={'text'} />
                 <label className='input-label' htmlFor='sell' >قیمت مسکن</label> <br></br>
             </div>
         </div>
