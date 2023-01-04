@@ -1,4 +1,4 @@
-.sell-container {
+.full-mortgage-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,7 +6,7 @@
   margin: 15px auto;
 }
 
-.input-box-sell {
+.input-box-full-mortgage {
   padding: 10px;
   margin: 10px 30px;
 }
@@ -17,24 +17,24 @@
   font-weight: 700;
 }
 
-.sell-input {
+.full-mortgage-input {
   padding: 8px;
   border-radius: 5px;
   border: 2px solid #97dece;
   width: 250px;
 }
 
-.sell-input:hover {
+.full-mortgage-input:hover {
   border: 2px solid #62b6b7;
 }
 
-.sell-input:focus {
+.full-mortgage-input:focus {
   outline: none;
   border: 2px solid #2b6967;
 }
 
 @media (width < 500px) {
-  .sell-container {
+  .full-mortgage-container {
     flex-direction: column;
   }
   .input-label {
@@ -42,11 +42,11 @@
     font-size: 16px;
     font-weight: 600;
   }
-  .input-box-sell {
+  .input-box-full-mortgage {
     display: flex;
     flex-direction: column;
   }
-  .sell-input {
+  .full-mortgage-input {
     padding: 8px;
     border-radius: 5px;
     border: 2px solid #97dece;

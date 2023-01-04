@@ -4,6 +4,7 @@ import Card from './UI/Card';
 import Type from './Components/Type';
 import Rent from './Components/Rent';
 import Sell from './Components/Sell';
+import FullRent from './Components/FullMortgage';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 function App() {
@@ -35,11 +36,14 @@ function App() {
     // console.log(operatingType, mortgage, hire, sell);
 
     console.log('operatingType= ', operatingType);
-    if (operatingType === 'rent') {
+    if (operatingType === 'rent' || operatingType === 'fullMortgage') {
+      if (operatingType === 'rent' && parseInt(hire) === 0) {
+        return false;
+      }
+      console.log('hire', hire, ' mortgage', mortgage);
       let temp = parseInt(hire);
       setHire(parseInt(hire) + parseInt(mortgage * 0.025));
       temp += parseInt(Number(mortgage) * 0.025);
-      // console.log("test", mortgage, " ", temp);
       temporary = temp / 6;
       tax = temporary * 0.09;
       result = Math.floor(temporary + tax);
@@ -85,33 +89,39 @@ function App() {
     return true;
   }
 
+  // This Block Receive any Data changes from their js files and saved them in useState ~ props
   function rentDataReceived(m, h) {
     setShowResult(false);
     const intM = m.toString().replaceAll(',', '');
     const intH = h.toString().replaceAll(',', '');
-    console.log('mortgage: ', intM, '   hire: ', intH);
-    // mortgage = Number(intM);
-    // hire = Number(intH);
+    // console.log('mortgage: ', intM, '   hire: ', intH);
     setMortgage(intM);
     setHire(intH);
   }
-  function sellDataReceived(s) {
-    console.log('sell: ', s);
+  function fullMortgageDataReceived(f) {
+    // console.log('full Rent: ', f);
     setShowResult(false);
-    // console.log(s, 's')
+    const intF = f.toString().replaceAll(',', '');
+    setHire(0);
+    setMortgage(intF);
+  }
+  function sellDataReceived(s) {
+    // console.log('sell: ', s);
+    setShowResult(false);
     const intS = s.toString().replaceAll(',', '');
-    // sell = Number(intS);
     setSell(intS);
   }
 
-  function typeChanged(type) {
+  function typeChanged(type) {  // Radio-btn Clicked in Type file ~ props
     setOperatingType(type);
     setShowResult(false);
+    setSell(0);
+    setHire(0);
+    setMortgage(0);
     // console.log(type);
   }
 
-  function calculateBtnClicked() {
-    // console.log('Calculate btn clicked!');
+  function calculateBtnClicked() {    // Calculate btn Clicked
     const res = calculate();
     if (!res) return;
     setShowResult(true);
@@ -124,7 +134,9 @@ function App() {
           <Card>
             <h2 className='app-topic'>محاسبه آنلاین حق کمیسیون<br></br>املاک رشت</h2>
             <Type onTypeChanged={typeChanged} />
-            {operatingType === 'rent' ? <Rent onDataReceived={rentDataReceived} /> : <Sell onDataReceived={sellDataReceived} />}
+            {operatingType === 'rent' ? <Rent onDataReceived={rentDataReceived} /> : <></>}
+            {operatingType === 'sell' ? <Sell onDataReceived={sellDataReceived} /> : <></>}
+            {operatingType === 'fullMortgage' ? <FullRent onDataReceived={fullMortgageDataReceived} /> : <></>}
             {!showResult ? <button className='calculate-btn' onClick={calculateBtnClicked}>محاسبه</button> : <></>}
           </Card>
           {showResult ?

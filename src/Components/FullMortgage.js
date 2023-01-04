@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import './Sell.css';
-import $ from 'jquery';
+import './FullMortgage.css'
+import $ from 'jquery'
 
-function Sell(props) {
-    const [sell, setSell] = useState(0);
+function FullRent(props) {
+    const [fullRent, setFullRent] = useState(0);
 
     function formatInputCurrency() {
         // Jquery Dependency
@@ -44,21 +44,21 @@ function Sell(props) {
 
     }
 
-    function sellChanged(event) {
-        setSell(event.target.value);
+    function FullMortgageChanged(event) {
+        setFullRent(event.target.value);
         props.onDataReceived(event.target.value);
         formatInputCurrency();
         // console.log(event.target.value);
     }
 
     return (
-        <div className='sell-container'>
-            <div className='input-box-sell'>
-                <input className='sell-input' data-type='currency' id='sell' placeholder='ریال' onChange={sellChanged} type={'text'} />
-                <label className='input-label' htmlFor='sell' >قیمت مسکن</label> <br></br>
+        <div className='full-mortgage-container'>
+            <div className='input-box-full-mortgage'>
+                <input className='full-mortgage-input' data-type='currency' id='full-mortgage' placeholder='ریال' onChange={FullMortgageChanged} type={'text'} />
+                <label className='input-label' htmlFor='full-mortgage' >رهن</label> <br></br>
             </div>
         </div>
     );
 }
 
-export default Sell;
+export default FullRent;
