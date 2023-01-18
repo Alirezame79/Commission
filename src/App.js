@@ -132,7 +132,7 @@ function App() {
       <div className="body">
         <div className="App">
           <Card>
-            <h2 className='app-topic'>محاسبه آنلاین حق کمیسیون<br></br>املاک رشت</h2>
+            <h1 className='app-topic'>محاسبه آنلاین حق کمیسیون<br></br>املاک رشت</h1>
             <Type onTypeChanged={typeChanged} />
             {operatingType === 'rent' ? <Rent onDataReceived={rentDataReceived} /> : <></>}
             {operatingType === 'sell' ? <Sell onDataReceived={sellDataReceived} /> : <></>}

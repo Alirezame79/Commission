@@ -21,6 +21,7 @@
 @media (width < 500px) {
   .type {
     flex-direction: column;
+    align-items: flex-end;
   }
   .radio-btn-label {
     font-size: 16px;
